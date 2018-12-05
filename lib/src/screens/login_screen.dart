@@ -57,13 +57,11 @@ class LoginScreen extends StatelessWidget {
     return StreamBuilder(
       stream: bloc.submitValid,
       builder: (context, snapshot) {
-        RaisedButton(
+        return RaisedButton(
           child: Text('Submit'),
           textColor: Colors.white,
           color: Colors.blueAccent,
-          onPressed: snapshot.hasError == false ? () {
-            print('holiwi');
-          } : null,
+          onPressed: snapshot.hasData ? bloc.submit : null,
           elevation: 5.0,
         );
       },
